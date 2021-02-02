@@ -9,11 +9,11 @@
 <ion-content [fullscreen]="true">
   <ion-item>
       <ion-label color="primary" floating>Temperatur</ion-label>
-      <ion-input type="number" [(ngModel)]="temperatur"></ion-input>
+      <ion-input type="number" [(ngModel)]="temperatur" id="temperatur"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary" floating>Windgeschwindigkeit</ion-label>
-      <ion-input type="number" [(ngModel)]="windgeschwindigkeit"></ion-input>
+      <ion-input type="number" [(ngModel)]="windgeschwindigkeit" id="windgeschwindigkeit"></ion-input>
     </ion-item>
-  <ion-button id="bCalculate" (click)="onCalculateClicked()" routerLink="/result" routerDirection="forward">Berechnen</ion-button>
+  <ion-button id="bCalculate" (click)="onCalculateClicked()" >Berechnen</ion-button>
 </ion-content>
