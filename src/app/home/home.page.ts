@@ -31,5 +31,11 @@ export class HomePage {
     console.log(NavigationExtras);
     this.router.navigate(['result'], NavigationExtras);
   }
+  onSavedClicked(){
+    this.router.navigate(['saved']);
+  }
+  onInformationClicked(){
+    this.router.navigate(['information']);
+  }
 
 }

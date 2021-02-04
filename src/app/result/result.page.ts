@@ -14,7 +14,7 @@ export class ResultPage implements OnInit{
   eText: HTMLTextAreaElement;
   data: any;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(params => {
       //console.log(params);
@@ -31,23 +31,22 @@ export class ResultPage implements OnInit{
     this.eText = <HTMLTextAreaElement> document.getElementById("ergebnisFeld"); 
     this.eText.textContent = "asdfljhsdl";
     this.calculateWindChill();
-
+    this.setResult();
   }
 
   calculateWindChill(){
     this.windchill = 13.12 + 0.6215 * this.temperatur - 11.37 * Math.pow(this.windgeschwindigkeit, 0.16) + 0.3965 * this.temperatur * Math.pow(this.windgeschwindigkeit, 0.16);
-    //this.windchill = Math.pow(this.windgeschwindigkeit, 0.16);
-    //console.log(this.windgeschwindigkeit);
     console.log(this.windchill);
   }
 
   setResult(){
     this.eText = <HTMLTextAreaElement> document.getElementById("ergebnisFeld"); 
-    this.eText.value = "asdfljhsdl";
+    this.eText.innerHTML = this.windchill;
+    console.log(this.eText);
   }
 
   onBackClicked(){
-    this.calculateWindChill();
+    this.router.navigate(['home']);
   }
 
 }
