@@ -28,7 +28,6 @@ export class HomePage {
         Windgeschwindigkeit: w
       }
     }
-    console.log(NavigationExtras);
     this.router.navigate(['result'], NavigationExtras);
   }
   onSavedClicked(){

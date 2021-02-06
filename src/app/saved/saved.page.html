@@ -8,4 +8,16 @@
 
 <ion-content [fullscreen]="true">
   <ion-button id="bHome" (click)="onHomeClicked()" >Home</ion-button>
+  <ion-button id="bHome" (click)="createContent()" >create</ion-button>
+
+  <ion-input type="number" [(ngModel)]="savedId" id="inputId"></ion-input>
+  <ion-button id="bHome" (click)="getSavedData()" >Get</ion-button>
+  <ion-button id="bHome" (click)="deleteSavedData()" >Delete</ion-button>
+
+  <ion-list id="listSavedData">
+    <ion-item >
+
+    </ion-item>
+  </ion-list>
+
 </ion-content>

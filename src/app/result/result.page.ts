@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -47,6 +47,17 @@ export class ResultPage implements OnInit{
 
   onBackClicked(){
     this.router.navigate(['home']);
+  }
+
+  onSaveClicked(){
+    let NavigationExtras: NavigationExtras ={
+      queryParams:{
+        Temperatur: this.temperatur,
+        Windgeschwindigkeit: this.windgeschwindigkeit,
+        Windchill: this.windchill
+      }
+    }
+    this.router.navigate(['saved'], NavigationExtras);
   }
 
 }
