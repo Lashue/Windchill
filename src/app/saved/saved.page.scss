@@ -25,3 +25,18 @@
 #container a {
   text-decoration: none;
 }
+
+
+ion-toolbar {
+  --color: #ffffff;
+  --background: #5d88df;
+}
+
+ion-content{
+  --color: #ffffff;
+  --background: #55cef3;
+  top: 4em;
+}
+.test{
+  flex-direction: column;
+}

@@ -8,6 +8,15 @@
   transform: translateY(-50%);
 }
 
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -16,12 +25,52 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+ion-toolbar {
+  --color: #ffffff;
+  --background: #5d88df;
+}
+
+ion-content{
+  --color: #ffffff;
+  --background: #55cef3;
+  top: 4em;
+}
+
+ion-item{
+  --color: #ffffff;
+  --background: #55cef3;
+}
+
+ion-button{
+  --background: #5d88df;
+}
+
+#bCalculate{
+  margin-top: 3em;
+}
+
+#bSaved{
+  margin-top: 4em;
+}
+
+#bInformation{
+  justify-self: end;
+  margin-top: 6em;
+}
+
+#buttonContent{
+  width: 100%;
+  height: max-content;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  
 }

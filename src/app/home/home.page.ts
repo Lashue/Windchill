@@ -22,19 +22,34 @@ export class HomePage {
 
     let t = this.tInput.value;
     let w = this.wInput.value;
-    let NavigationExtras: NavigationExtras ={
-      queryParams:{
-        Temperatur: t,
-        Windgeschwindigkeit: w
+    if(t != "" && w != ""){
+      let NavigationExtras: NavigationExtras ={
+        queryParams:{
+          Temperatur: t,
+          Windgeschwindigkeit: w,
+        }
       }
+      this.router.navigate(['result'], NavigationExtras);
+    }else{
+      this.showPopUpEingabeFehlt();
     }
-    this.router.navigate(['result'], NavigationExtras);
   }
+  
   onSavedClicked(){
     this.router.navigate(['saved']);
   }
+  
   onInformationClicked(){
     this.router.navigate(['information']);
+  }  
+  
+  showPopUpEingabeFehlt(){
+    const alert = document.createElement('ion-alert');
+    alert.header = "Eingabe Fehlt";
+    alert.message = "Temperatur und Windgeschwindigkeit müssen eine Wert haben.";
+    alert.buttons = ['OK'];
+    document.body.appendChild(alert);
+    return alert.present();
   }
 
 }

@@ -1,22 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar id="toolbar" >
+    <ion-img  style="float: left; width: 80px; height: 80px; margin-left: 1em;" src="./assets/pictures/wind_icon_l.png" ></ion-img>
+    <ion-title color="light" size="large">
       WINDCHILL
     </ion-title>
+    <ion-img  style="float: right; width: 80px; height: 80px; margin-right: 1em;" src="./assets/pictures/wind_icon_r.png" ></ion-img>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" id="body" >
+ <ion-item>
+    <ion-label color="light" floating>Temperatur:</ion-label>
+    <ion-input type="number" [(ngModel)]="temperatur" id="temperatur"></ion-input>
+    <ion-label color="light" floating>°C</ion-label>
+  </ion-item>
   <ion-item>
-      <ion-label color="primary" floating>Temperatur</ion-label>
-      <ion-input type="number" [(ngModel)]="temperatur" id="temperatur"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" floating>Windgeschwindigkeit</ion-label>
-      <ion-input type="number" [(ngModel)]="windgeschwindigkeit" id="windgeschwindigkeit"></ion-input>
-    </ion-item>
-  <ion-button id="bCalculate" (click)="onCalculateClicked()" >Berechnen</ion-button>
-  <ion-button id="bSaved" (click)="onSavedClicked()" >Gespeicherte</ion-button>
-  <ion-button id="bInformation" (click)="onInformationClicked()" >Informationen</ion-button>
-
+    <ion-label color="light" floating>Windgeschwindigkeit:</ion-label>
+    <ion-input type="number" [(ngModel)]="windgeschwindigkeit" id="windgeschwindigkeit"></ion-input>
+    <ion-label color="light" floating>Km/H</ion-label>
+  </ion-item>
+  <ion-grid id="buttonContent">
+    <ion-button id="bCalculate" (click)="onCalculateClicked()">Berechnen</ion-button><br>
+    <ion-button id="bSaved" (click)="onSavedClicked()" >Gespeicherte</ion-button><br>
+    <ion-button id="bInformation" (click)="onInformationClicked()" >Informationen</ion-button>
+  </ion-grid>
 </ion-content>

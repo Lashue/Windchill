@@ -10,14 +10,9 @@
   <ion-button id="bHome" (click)="onHomeClicked()" >Home</ion-button>
   <ion-button id="bCreate" (click)="createContent()" >create</ion-button>
 
-  <ion-input type="number" [(ngModel)]="savedId" id="inputId"></ion-input>
   <ion-button id="bClear" (click)="deleteSavedData()" >clear</ion-button>
-  <ion-button id="bDel" (click)="deleteSavedData()" >Delete</ion-button>
 
-  <ion-list id="listSavedData">
-    <ion-item >
-
-    </ion-item>
-  </ion-list>
-  <ion-content id="savedList"></ion-content>
+  <div class="grid-container" id="listSavedData">
+    
+  </div>
 </ion-content>

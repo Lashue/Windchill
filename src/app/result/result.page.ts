@@ -6,12 +6,15 @@ import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
   templateUrl: 'result.page.html',
   styleUrls: ['result.page.scss'],
 })
-export class ResultPage implements OnInit{
+export class ResultPage {
 
   windgeschwindigkeit;
   temperatur;
   windchill;
   eText: HTMLTextAreaElement;
+  wText: HTMLTextAreaElement;
+  tText: HTMLTextAreaElement;
+
   data: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -22,27 +25,25 @@ export class ResultPage implements OnInit{
         this.data = params;
         this.temperatur = this.data.Temperatur;
         this.windgeschwindigkeit = this.data.Windgeschwindigkeit;
-    }
-    )
+        this.calculateWindChill();
+        this.setResult();
+    })
   }
-  
-  ngOnInit(){
-    console.log(this.data);
-    this.eText = <HTMLTextAreaElement> document.getElementById("ergebnisFeld"); 
-    this.eText.textContent = "asdfljhsdl";
-    this.calculateWindChill();
-    this.setResult();
-  }
+
 
   calculateWindChill(){
     this.windchill = 13.12 + 0.6215 * this.temperatur - 11.37 * Math.pow(this.windgeschwindigkeit, 0.16) + 0.3965 * this.temperatur * Math.pow(this.windgeschwindigkeit, 0.16);
+    this.windchill = Math.round (this.windchill * 100) / 100; 
     console.log(this.windchill);
   }
 
   setResult(){
     this.eText = <HTMLTextAreaElement> document.getElementById("ergebnisFeld"); 
+    this.wText = <HTMLTextAreaElement> document.getElementById("windgeschwindigkeitFeld"); 
+    this.tText = <HTMLTextAreaElement> document.getElementById("TemperaturFeld"); 
     this.eText.innerHTML = this.windchill;
-    console.log(this.eText);
+    this.wText.innerHTML = this.windgeschwindigkeit;
+    this.tText.innerHTML = this.temperatur;
   }
 
   onBackClicked(){
@@ -50,11 +51,15 @@ export class ResultPage implements OnInit{
   }
 
   onSaveClicked(){
+    var date = new Date();
+    var dateString =  date.getDate() + "." + date.getMonth() + "." + date.getFullYear() 
     let NavigationExtras: NavigationExtras ={
       queryParams:{
         Temperatur: this.temperatur,
         Windgeschwindigkeit: this.windgeschwindigkeit,
-        Windchill: this.windchill
+        Windchill: this.windchill,
+        DateSaved: dateString,
+        note: ""
       }
     }
     this.router.navigate(['saved'], NavigationExtras);
