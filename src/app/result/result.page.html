@@ -1,16 +1,28 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar id="toolbar">
+    <ion-img style="float: left; width: 80px; height: 80px; margin-left: 1em;" src="./assets/pictures/wind_icon_l.png">
+    </ion-img>
+    <ion-title color="light" size="large">
       Ergebnis
     </ion-title>
+    <ion-img style="float: right; width: 80px; height: 80px; margin-right: 1em;"
+      src="./assets/pictures/wind_icon_r.png"></ion-img>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-textarea id="windgeschwindigkeitFeld"></ion-textarea>
-  <ion-textarea id="TemperaturFeld"></ion-textarea>
-  <ion-textarea [(ngModel)]="ergebnisFeld" id="ergebnisFeld"></ion-textarea>
-  <ion-button id="bBack" (click)="onBackClicked()" >Zurück</ion-button>
-  <ion-button id="bBack" (click)="onSaveClicked()" >Save</ion-button>
+<ion-content [fullscreen]="true" style="text-align: center;">
+    <ion-text style="margin-bottom: 0em;">Der Windchill berträgt: </ion-text><br><br>
+    <ion-text id="ergebnisFeld" style="font-size: 2.6rem"></ion-text><br><br><br>
+    <ion-text>bei: </ion-text><br>
+  <ion-text id="windgeschwindigkeitFeld"></ion-text><br>
+  <ion-text id="TemperaturFeld"></ion-text><br>
+  <ion-button (click)="onSaveClicked()" style="margin-top: 5em;">Speichern</ion-button>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-img id="imgFooter" style="float: center; width: 40px; height: 40px; align-content: center;" (click)="onHomeClicked()"
+  src="./assets/pictures/home.png"></ion-img>
+
+</ion-footer>

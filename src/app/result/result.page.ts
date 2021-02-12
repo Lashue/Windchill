@@ -11,9 +11,10 @@ export class ResultPage {
   windgeschwindigkeit;
   temperatur;
   windchill;
-  eText: HTMLTextAreaElement;
-  wText: HTMLTextAreaElement;
-  tText: HTMLTextAreaElement;
+  notiz;
+  eText: HTMLIonTextElement;
+  wText: HTMLIonTextElement;
+  tText: HTMLIonTextElement;
 
   data: any;
 
@@ -38,19 +39,45 @@ export class ResultPage {
   }
 
   setResult(){
-    this.eText = <HTMLTextAreaElement> document.getElementById("ergebnisFeld"); 
-    this.wText = <HTMLTextAreaElement> document.getElementById("windgeschwindigkeitFeld"); 
-    this.tText = <HTMLTextAreaElement> document.getElementById("TemperaturFeld"); 
+    this.eText = <HTMLIonTextElement> document.getElementById("ergebnisFeld"); 
+    this.wText = <HTMLIonTextElement> document.getElementById("windgeschwindigkeitFeld"); 
+    this.tText = <HTMLIonTextElement> document.getElementById("TemperaturFeld"); 
     this.eText.innerHTML = this.windchill;
-    this.wText.innerHTML = this.windgeschwindigkeit;
-    this.tText.innerHTML = this.temperatur;
+    this.wText.innerHTML = "Windgeschwindigkeit: " + this.windgeschwindigkeit + "km/h";
+    this.tText.innerHTML = "Temperatur: " + this.temperatur + "°C";
   }
 
-  onBackClicked(){
+  onHomeClicked(){
     this.router.navigate(['home']);
   }
 
   onSaveClicked(){
+    const alert = document.createElement('ion-alert');
+
+      alert.header = "Windchill: ";
+      alert.message = 'Windgeschwindigkeit: ' + this.windgeschwindigkeit + "\n Temperatur: " + this.temperatur;
+
+   alert.inputs = [
+     {
+      name: "note", 
+      placeholder: "Notiz",
+       
+     }
+   ]
+
+    alert.buttons = ['back', {
+      text: "Save",
+      handler: (saveData) => {
+        this.notiz = saveData.note;
+        this.routeToSaved();
+      }
+    }];
+  
+    document.body.appendChild(alert);
+    return alert.present();
+  }
+
+  routeToSaved(){
     var date = new Date();
     var dateString =  date.getDate() + "." + date.getMonth() + "." + date.getFullYear() 
     let NavigationExtras: NavigationExtras ={
@@ -59,7 +86,7 @@ export class ResultPage {
         Windgeschwindigkeit: this.windgeschwindigkeit,
         Windchill: this.windchill,
         DateSaved: dateString,
-        note: ""
+        note: this.notiz
       }
     }
     this.router.navigate(['saved'], NavigationExtras);

@@ -1,18 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Gespeichert
+  <ion-toolbar id="toolbar">
+    <ion-img style="float: left; width: 80px; height: 80px; margin-left: 1em;" src="./assets/pictures/wind_icon_l.png">
+    </ion-img>
+    <ion-title color="light" size="large">
+      Gespeicherte
     </ion-title>
+    <ion-img style="float: right; width: 80px; height: 80px; margin-right: 1em;"
+      src="./assets/pictures/wind_icon_r.png"></ion-img>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button id="bHome" (click)="onHomeClicked()" >Home</ion-button>
-  <ion-button id="bCreate" (click)="createContent()" >create</ion-button>
-
-  <ion-button id="bClear" (click)="deleteSavedData()" >clear</ion-button>
-
-  <div class="grid-container" id="listSavedData">
-    
+<ion-content fullscreen = "true">
+  <div class="grid-container" id="listSavedData" style="overflow: auto; margin-bottom: 1em;" >
   </div>
+
 </ion-content>
+<ion-footer class="ion-no-border">
+        <ion-img id="imgFooter" style="float: center; width: 40px; height: 40px; align-content: center;" (click)="onHomeClicked()"
+        src="./assets/pictures/home.png"></ion-img>
+
+</ion-footer>

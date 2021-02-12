@@ -22,8 +22,16 @@
     <ion-label color="light" floating>Km/H</ion-label>
   </ion-item>
   <ion-grid id="buttonContent">
-    <ion-button id="bCalculate" (click)="onCalculateClicked()">Berechnen</ion-button><br>
-    <ion-button id="bSaved" (click)="onSavedClicked()" >Gespeicherte</ion-button><br>
-    <ion-button id="bInformation" (click)="onInformationClicked()" >Informationen</ion-button>
+    <ion-row>
+
+      <ion-img id="imgCalculate" style=" float: center; width: 50px; height: 50px; align-content: center; margin-right: 5em;" (click)="onCalculateClicked()"
+        src="./assets/pictures/calculate.webp"></ion-img>
+      <ion-img id="imgSaved" style=" float: center; width: 50px; height: 50px; align-content: center;" (click)="onSavedClicked()"
+        src="./assets/pictures/saved.webp"></ion-img>
+  </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-img id="imgFooter" style="float: center; width: 40px; height: 40px; align-content: center;" (click)="onInformationClicked()"
+  src="./assets/pictures/info.png"></ion-img>    
+</ion-footer>

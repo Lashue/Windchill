@@ -53,24 +53,28 @@ ion-button{
   --background: #5d88df;
 }
 
-#bCalculate{
-  margin-top: 3em;
-}
-
-#bSaved{
-  margin-top: 4em;
-}
-
-#bInformation{
-  justify-self: end;
-  margin-top: 6em;
-}
-
-#buttonContent{
+ion-footer {
   width: 100%;
   height: max-content;
   align-items: center;
   justify-content: center;
   display: grid;
-  
+  background: #55cef3;
+  padding: 0.4em;
+}
+
+ion-page{
+  --color: #ffffff;
+  --background: #55cef3;
+}
+
+#buttonContent {
+  margin-top: 7em;
+  width: 100%;
+  height: max-content;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  background: #55cef3;
+  padding: 0.4em;
 }
