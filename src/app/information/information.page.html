@@ -1,13 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar id="toolbar" >
+    <ion-img  style="float: left; width: 80px; height: 80px; margin-left: 1em;" src="./assets/pictures/wind_icon_l.png" ></ion-img>
+    <ion-title color="light" size="large">
       Informationen
     </ion-title>
+    <ion-img  style="float: right; width: 80px; height: 80px; margin-right: 1em;" src="./assets/pictures/wind_icon_r.png" ></ion-img>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button id="bHome" (click)="onHomeClicked()" >Home</ion-button>
+<ion-content [fullscreen]="true" >
+<ion-content style="width: 90%; right: 5%; left: 5%;" >
+  <ion-text class="title">Windchill:</ion-text><br>
+  <ion-text>Mit dem Windchill lässt sich die gefühlte Temperatur berechnen. Dafür werden die beiden Kennzahlen "Temperatur" und "Windgeschwindigkeit" benötigt. </ion-text><br><br>
+  <ion-text class="title2">Die Formel dafür lautet:</ion-text><br>
+  <ion-text style="font-size: 0.7em;">W = 13,12 + 0,6215 * T – 11,37 * V<sup>0,16</sup> + 0,3965 * T * V<sup>0,16</sup></ion-text><br>
+  <ion-text style="font-size: 0.7em;">T = Temperatur | V = Windgeschwindigkeit</ion-text><br><br>
+  <ion-text class="title2">Akzeptierte Eingaben:</ion-text><br>
+  <ion-text >Die <b>Windgeschwindigkeit</b> muss mindestens 0 km/h betragen und bei Werten über 408 km/h kommt eine Warnung, da der Wert höher als der höchste je gemessene Wert der Erde ist. (jedoch in Labor umständen möglich)</ion-text><br>
+  <ion-text >Bei der <b>Temperatur</b> wird bei Werten über 57°C und unter -94°C eine Warnung bei der berechnung ausgegeben, da der Wert höher/niedriger ist, als der höchste je gemessene Wert der Erde ist. (jedoch in Labor umständen möglich)</ion-text><br>
+
+</ion-content>
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-img id="imgFooter" style="float: center; width: 40px; height: 40px; align-content: center;" (click)="onHomeClicked()"

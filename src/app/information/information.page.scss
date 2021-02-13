@@ -7,6 +7,14 @@
   top: 50%;
   transform: translateY(-50%);
 }
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
 
 #container strong {
   font-size: 20px;
@@ -34,7 +42,7 @@ ion-toolbar {
 ion-content{
   --color: #ffffff;
   --background: #55cef3;
-  top: 4em;
+  top: 1em;
 }
 
 ion-item{
@@ -50,4 +58,13 @@ ion-footer {
   display: grid;
   background: #55cef3;
   padding: 0.4em;
+}
+
+.title{
+  font-size: 1.5em;
+}
+
+.title2{
+  font-size: 1.25em;
+  margin-top: 1em;
 }

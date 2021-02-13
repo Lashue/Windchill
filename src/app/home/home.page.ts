@@ -23,8 +23,8 @@ export class HomePage {
     let t = this.tInput.value;
     let w = this.wInput.value;
     if (t != "" && w != "") {
-      if (<number><unknown>w >= 0) {
-        if (<number><unknown>w >= 408 || <number><unknown>t >= 57 || <number><unknown>t <= -94) {
+      if (<number><unknown>w >= 0) { //es gibt keine negativen Windgeschwindigkeiten
+        if (<number><unknown>w >= 408 || <number><unknown>t >= 57 || <number><unknown>t <= -94) {    // ~ höchsten/niedrigsten Temperaturen/Windgeschwindigkeit, die auf der Welt gemessen wurden
           this.showPopUpEingabeUnrealistisch(t, w);
         } else {
           let NavigationExtras: NavigationExtras = {
