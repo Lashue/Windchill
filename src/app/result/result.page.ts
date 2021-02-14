@@ -21,8 +21,6 @@ export class ResultPage {
   constructor(private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(params => {
-      //console.log(params);
-
         this.data = params;
         this.temperatur = this.data.Temperatur;
         this.windgeschwindigkeit = this.data.Windgeschwindigkeit;
@@ -35,7 +33,6 @@ export class ResultPage {
   calculateWindChill(){
     this.windchill = 13.12 + 0.6215 * this.temperatur - 11.37 * Math.pow(this.windgeschwindigkeit, 0.16) + 0.3965 * this.temperatur * Math.pow(this.windgeschwindigkeit, 0.16);
     this.windchill = Math.round (this.windchill * 100) / 100; 
-    console.log(this.windchill);
   }
 
   setResult(){

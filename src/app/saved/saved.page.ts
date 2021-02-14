@@ -15,8 +15,6 @@ import { Button } from 'protractor';
 export class SavedPage {
 
   idInput: HTMLInputElement;
-  //list: HTMLElement;
-
 
   constructor(private route: ActivatedRoute, private router: Router, private storage: Storage) {
     this.route.queryParams.subscribe(params => {
@@ -44,8 +42,6 @@ export class SavedPage {
 
   getSavedDataById(id:any) : any{
     this.storage.get(id).then((val) => {
-      console.log("Data:");
-      console.log(val);
       return val;
     });
   }
@@ -64,12 +60,8 @@ export class SavedPage {
   }
 
   createContent(){
-    //var list = document.createElement("ion-list");
     var list = document.getElementById("listSavedData");
     list.innerHTML = "";
-    //var list = document.createElement("ion-list");
-    //contentList.appendChild(list);
-
     this.storage.forEach((v,k)=>{
       var listElement = document.createElement("ion-grid");
 
@@ -127,7 +119,7 @@ export class SavedPage {
         }
       }, 
        {
-      text: "Delete",
+      text: "Löschen",
       cssClass: 'warning',
       handler: () => {
         this.deleteSavedDataById(id);
